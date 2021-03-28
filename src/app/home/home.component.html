@@ -1,0 +1,26 @@
+<div class="row">
+    <app-add-user class="col-12"></app-add-user>
+    <div class="col-12">
+        <form [formGroup]="userMange" *ngIf="userMange">
+            <div *ngFor="let item of listOfUser" class="row">
+                <div class="col-8 alignText">
+                    <div *ngIf="item.isValid else displyTextEdit">
+                        <input type="text" class="form-control m-1" placeholder="Enter name" [formControlName]="item.id">
+                    </div>
+                    <ng-template class="m-1" #displyTextEdit>
+                        {{item.name}}
+                    </ng-template>
+                </div>
+                <div class="col-4">
+                    <div *ngIf="item.isValid else displyEdit">
+                        <button type="button" class="btn btn-secondary" (click)="saveItem(item)" >Save</button>
+                    </div>
+                    <ng-template #displyEdit>
+                        <a type="button" class="btn btn-secondary" (click)="editUser(item)">Edit</a>
+                        <a type="button" class="btn btn-secondary m-1" (click)="deleteUser(item.id)">Delete</a>
+                    </ng-template>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

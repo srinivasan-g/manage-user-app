@@ -1,0 +1,18 @@
+<form [formGroup]="addUserForm">
+<div class="row">
+    <div class=" col-4">
+        <div class="form-group" >
+            <label for="exampleInputEmail1">Add New User</label>
+            <input type="text" class="form-control" formControlName="addUserInput"
+                placeholder="Enter name">
+        </div>
+    </div>
+    <div class="col-7 verticalAlign">
+        <button type="button" class="btn btn-primary" [disabled]="addUserForm.invalid" (click)="addUser()">Add</button>
+    </div>
+    <div class="col-12">
+        <a type="button" class="btn btn-secondary" (click)="editAllUser()">Edit All</a>
+        <a type="button" class="btn btn-secondary m-1" (click)="deleteAllUser()">Delete All</a>
+    </div>
+</div>
+</form>
